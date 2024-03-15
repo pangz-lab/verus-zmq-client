@@ -1,4 +1,5 @@
 # verus-zmq-client
+Ongoing Development
 Verus coin Typescript client for ZMQ messaging.
 
 # Reference
