@@ -1,0 +1,27 @@
+{
+  "name": "verus-zmq-client",
+  "version": "1.0.0",
+  "description": "Verus Coin Typescript client for ZMQ messaging.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts"
+  },
+  "author": "Pangz",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.25",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "zeromq": "^6.0.0-beta.19"
+  }
+}
