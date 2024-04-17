@@ -6,6 +6,7 @@ describe('SubscriptionTopics', () => {
         expect(SubscriptionTopics.rawBlock).toBe('rawblock');
         expect(SubscriptionTopics.hashTx).toBe('hashtx');
         expect(SubscriptionTopics.hashBlock).toBe('hashblock');
+        expect(SubscriptionTopics.sequence).toBe('sequence');
     });
 });
 
@@ -27,7 +28,8 @@ describe('VerusZmqOptions', () => {
         onHashBlockReceived: jest.fn(),
         onHashTxReceived: jest.fn(),
         onRawBlockReceived: jest.fn(),
-        onRawTxReceived: jest.fn()
+        onRawTxReceived: jest.fn(),
+        onSequenceReceived: jest.fn(),
     };
 
     test('constructor sets properties correctly', () => {
@@ -35,7 +37,6 @@ describe('VerusZmqOptions', () => {
         const options = new VerusZmqOptions(mockServer, topics, mockEvents);
         expect(options.connection).toBe(mockServer);
         expect(options.topics).toEqual(topics);
-        // expect(options.events).toBe(mockEvents);
     });
 
     test('all topics should be returned if topics is empty', () => {
@@ -43,9 +44,10 @@ describe('VerusZmqOptions', () => {
         const options = new VerusZmqOptions(mockServer, topics, mockEvents);
         expect(options.topics).toEqual([
             SubscriptionTopics.rawTx,
-            SubscriptionTopics.rawBlock,
             SubscriptionTopics.hashTx,
+            SubscriptionTopics.rawBlock,
             SubscriptionTopics.hashBlock,
+            SubscriptionTopics.sequence,
         ]);
     });
     

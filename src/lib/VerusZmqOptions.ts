@@ -1,24 +1,28 @@
-type BeforeEventCallback = (value: string, topic?: string) => Object;
-type AfterEventCallback = (value: string, topic?: string, result?: Object) => void;
-type ReceivedEventCallback = (value: string, result?: Object) => Object;
+type BeforeEventCallback = (value: EventData, topic?: string) => Object;
+type AfterEventCallback = (value: EventData, topic?: string, result?: Object) => void;
+type ReceivedEventCallback = (value: EventData, topic?: string, result?: Object) => Object;
+export type EventData = string | Buffer;
+
 export interface EventReturn {
-    [key: string]: (value: string, topic?: string, result?: Object) => Object | void;
+    [key: string]: (value: EventData, topic?: string, result?: Object) => Object | void;
 }
 
 export enum SubscriptionTopics {
     rawTx = 'rawtx',
-    rawBlock = 'rawblock',
     hashTx = 'hashtx',
+    rawBlock = 'rawblock',
     hashBlock = 'hashblock',
+    sequence = 'sequence',
 }
 
 export interface SubscriptionEventsHandler {
     before?: BeforeEventCallback,
     after?: AfterEventCallback
-    onHashBlockReceived?: ReceivedEventCallback;
+    onRawTxReceived?: ReceivedEventCallback;
     onHashTxReceived?: ReceivedEventCallback;
     onRawBlockReceived?: ReceivedEventCallback;
-    onRawTxReceived?: ReceivedEventCallback;
+    onHashBlockReceived?: ReceivedEventCallback;
+    onSequenceReceived?: ReceivedEventCallback;
 }
 
 export class VerusZmqConnection {
@@ -67,31 +71,35 @@ export class VerusZmqOptions {
 
     getEventHandlers(): EventReturn {
         const before = (this.events.before !== undefined) ? 
-            (value: string, topic?: string) => this.events.before!(value, topic) : 
+            (value: EventData, topic?: string) => this.events.before!(value, topic) : 
             () => Object;
         const after = (this.events.after !== undefined) ? 
-            (value: string, topic?: string, result?: Object) => this.events.after!(value, topic, result) : 
+            (value: EventData, topic?: string, result?: Object) => this.events.after!(value, topic, result) : 
             () => {};
-        const onHashBlockReceived = (this.events.onHashBlockReceived !== undefined) ? 
-            (value: string, result?: Object) => this.events.onHashBlockReceived!(value, result) : 
-            () => Object;
-        const onRawBlockReceived = (this.events.onRawBlockReceived !== undefined) ? 
-            (value: string, result?: Object) => this.events.onRawBlockReceived!(value, result) : 
+        const onRawTxReceived = (this.events.onRawTxReceived !== undefined) ? 
+            (value: EventData, topic?: string, result?: Object) => this.events.onRawTxReceived!(value, topic, result) : 
             () => Object;
         const onHashTxReceived = (this.events.onHashTxReceived !== undefined) ? 
-            (value: string, result?: Object) => this.events.onHashTxReceived!(value, result) : 
+            (value: EventData, topic?: string, result?: Object) => this.events.onHashTxReceived!(value, topic, result) : 
             () => Object;
-        const onRawTxReceived = (this.events.onRawTxReceived !== undefined) ? 
-            (value: string, result?: Object) => this.events.onRawTxReceived!(value, result) : 
+        const onRawBlockReceived = (this.events.onRawBlockReceived !== undefined) ? 
+            (value: EventData, topic?: string, result?: Object) => this.events.onRawBlockReceived!(value, topic, result) : 
+            () => Object;
+        const onHashBlockReceived = (this.events.onHashBlockReceived !== undefined) ? 
+            (value: EventData, topic?: string, result?: Object) => this.events.onHashBlockReceived!(value, topic, result) : 
+            () => Object;
+        const onSequenceReceived = (this.events.onSequenceReceived !== undefined) ? 
+            (value: EventData, topic?: string, result?: Object) => this.events.onSequenceReceived!(value, topic, result) : 
             () => Object;
         
         return {
             before: before,
             after: after,
-            onHashBlockReceived: onHashBlockReceived,
+            onRawTxReceived: onRawTxReceived,
             onHashTxReceived: onHashTxReceived,
             onRawBlockReceived: onRawBlockReceived,
-            onRawTxReceived: onRawTxReceived,
+            onHashBlockReceived: onHashBlockReceived,
+            onSequenceReceived: onSequenceReceived,
         };
     }
 }

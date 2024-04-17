@@ -1,28 +1,34 @@
-import { SubscriptionEventsHandler, SubscriptionTopics, VerusZmqClient, VerusZmqConnection, VerusZmqOptions } from "..";
+import { EventData, SubscriptionEventsHandler, SubscriptionTopics, VerusZmqClient, VerusZmqConnection, VerusZmqOptions } from "..";
 
 async function run() {
     const eh: SubscriptionEventsHandler = {
-        onHashBlockReceived: function (value: String): Object {
-            console.log("onHashBlockReceived >> " + value);
-            return {res: 1};
-        },
-        onRawBlockReceived: function (value: String): Object {
-            console.log("onRawBlockReceived >> " + value);
-            return {res: 2};
-        },
-        onHashTxReceived: function (value: String): Object {
-            console.log("onHashTxReceived >> " + value);
-            return {res: 3};
-        },
-        onRawTxReceived: function (value: String): Object {
+
+        onRawTxReceived: function (value: EventData): Object {
             console.log("onRawTxReceived >> " + value);
             return {res: 4};
         },
-        before: function(value: string, topic?: string) {
+        onHashTxReceived: function (value: EventData): Object {
+            console.log("onHashTxReceived >> " + value);
+            return {res: 3};
+        },
+        onHashBlockReceived: function (value: EventData): Object {
+            console.log("onHashBlockReceived >> " + value);
+            console.log((new Date()).toLocaleTimeString());
+            return {res: 1};
+        },
+        onRawBlockReceived: function (value: EventData): Object {
+            console.log("onRawBlockReceived >> " + value);
+            return {res: 2};
+        },
+        onSequenceReceived: function (value: EventData): Object {
+            console.log("onSequenceReceived >> " + value);
+            return {res: 4};
+        },
+        before: function(value: EventData, topic?: string) {
             console.log(`before value >> ${value} ${topic}`);
             return {};
         },
-        after: function(value: string, topic?: string) {
+        after: function(value: EventData, topic?: string) {
             console.log(`after value >> ${value} ${topic}`);
         }
     };
@@ -30,10 +36,10 @@ async function run() {
         new VerusZmqOptions(
             new VerusZmqConnection('127.0.0.1', 89000),
             [
-                SubscriptionTopics.hashBlock,
+                SubscriptionTopics.rawTx,
                 SubscriptionTopics.hashTx,
                 SubscriptionTopics.rawBlock,
-                SubscriptionTopics.rawTx,
+                SubscriptionTopics.hashBlock,
             ],
             eh
         )
@@ -41,7 +47,8 @@ async function run() {
 
     client
         .connect()
-        .listen();
+        .listen()
+        .catch(e => {console.log("Error " + e);});
 }
 
 run()
