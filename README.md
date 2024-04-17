@@ -1,4 +1,5 @@
 
+![Logo](https://raw.githubusercontent.com/pangz-lab/verus-zmq-client/main/icon.png)
 # Verus ZMQ Client
 An intuitive and lightweight Typescript/Javascript client library for the Verus Coin ZMQ messaging.
 
