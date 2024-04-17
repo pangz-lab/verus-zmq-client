@@ -1,6 +1,6 @@
 {
   "name": "verus-zmq-client",
-  "version": "0.1.0",
+  "version": "0.1.0-2",
   "description": "Verus Coin Javascript/Typescript client for ZMQ messaging.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,5 +39,11 @@
     "messaging",
     "verus messaging",
     "verus zmq client"
-  ]
+  ],
+  "files": ["dist", "LICENSE", "README.md", "package.json"],
+  "homepage": "https://github.com/pangz-lab/verus-zmq-client#readme",
+  "bugs": {
+    "url": "https://github.com/pangz-lab/verus-zmq-client/issues",
+    "email": "pangz.lab@gmail.com"
+  }
 }

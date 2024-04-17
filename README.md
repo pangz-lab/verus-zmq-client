@@ -4,7 +4,7 @@ An intuitive and lightweight Typescript/Javascript client library for the Verus 
 
 ## Introduction
 
-Verus ZMQ Client is a library that enables interaction with Verus blockchain nodes via ZeroMQ (ZMQ) messaging protocol.
+Verus ZMQ Client is a library that enables to receive event notification from the Verus blockchain nodes via ZeroMQ (ZMQ) messaging protocol.
 <br>This library provides functionalities to subscribe to various types of blockchain data events and receive real-time updates.
 
 ## Verus Coin Setup
@@ -23,10 +23,10 @@ To receive the events from the Verus blockchain, you need to enable the ZMQ sett
 
 ### Steps
 This is applicable for `Verus` and `PBaaS` blockchains.
-1. Update the configuration file.
+1. Update the configuration file (see below).
 2. Restart the node.
 
-### ZMQ Configuration
+#### ZMQ Configuration
 Copy and paste to the config file.
 ```bash
 ...
@@ -88,7 +88,6 @@ const eh: SubscriptionEventsHandler = {
     },
     onHashBlockReceived: function (value: EventData): Object {
         console.log("onHashBlockReceived >> " + value);
-        console.log((new Date()).toLocaleTimeString());
         return {};
     },
     before: function(value: EventData, topic?: string) {
