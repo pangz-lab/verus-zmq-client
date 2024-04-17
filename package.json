@@ -1,7 +1,7 @@
 {
   "name": "verus-zmq-client",
-  "version": "0.0.5",
-  "description": "Verus Coin Typescript client for ZMQ messaging.",
+  "version": "0.1.0",
+  "description": "Verus Coin Javascript/Typescript client for ZMQ messaging.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -25,5 +25,19 @@
   },
   "dependencies": {
     "zeromq": "^6.0.0-beta.19"
-  }
+  },
+  "keywords": [
+    "Verus",
+    "Verus coin",
+    "VRSC",
+    "zeromq",
+    "ZMQ",
+    "ZMQ client",
+    "verus zmq",
+    "verus client",
+    "client",
+    "messaging",
+    "verus messaging",
+    "verus zmq client"
+  ]
 }
