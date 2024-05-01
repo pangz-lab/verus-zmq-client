@@ -1,0 +1,14 @@
+Dockerfile
+LICENSE
+README.md
+.gitignore
+.nvmrc
+error.log
+jest.config.js
+compose.yaml
+test
+build-docker.sh
+compose.yml
+icon.png
+publish.sh
+example

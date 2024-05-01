@@ -1,4 +1,4 @@
-import { EventData, SubscriptionEventsHandler, SubscriptionTopics, VerusZmqClient, VerusZmqConnection, VerusZmqOptions } from "..";
+import { EventData, SubscriptionEventsHandler, SubscriptionTopics, VerusZmqClient, VerusZmqConnection, VerusZmqOptions } from "../src";
 
 async function run() {
     const eh: SubscriptionEventsHandler = {
@@ -34,7 +34,7 @@ async function run() {
     };
     const client = new VerusZmqClient(
         new VerusZmqOptions(
-            new VerusZmqConnection('127.0.0.1', 89000),
+            new VerusZmqConnection('127.0.0.1', 8900),
             [
                 SubscriptionTopics.rawTx,
                 SubscriptionTopics.hashTx,

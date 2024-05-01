@@ -11,7 +11,7 @@ Verus ZMQ Client is a library that enables to receive event notification from th
 ## Verus Coin Setup
 To receive the events from the Verus blockchain, you need to enable the ZMQ setting first by adding the following lines in the `VRSC.conf`.
 > 📑 ***Note*** <br>
-> You should have a Verus node running locally. <br>The address `127.0.0.1:89000` will serve as the ZMQ web server to be accessed by this library.
+> You should have a Verus node running locally. <br>The address `127.0.0.1:8900` will serve as the ZMQ web server to be accessed by this library.
 > You can change it to any available ports.
 >
 
@@ -31,10 +31,10 @@ This is applicable for `Verus` and `PBaaS` blockchains.
 Copy and paste to the config file.
 ```bash
 ...
-zmqpubrawblock=tcp://127.0.0.1:89000
-zmqpubrawtx=tcp://127.0.0.1:89000
-zmqpubhashtx=tcp://127.0.0.1:89000
-zmqpubhashblock=tcp://127.0.0.1:89000
+zmqpubrawblock=tcp://127.0.0.1:8900
+zmqpubrawtx=tcp://127.0.0.1:8900
+zmqpubhashtx=tcp://127.0.0.1:8900
+zmqpubhashblock=tcp://127.0.0.1:8900
 ```
 
 ### ⛓ PBaaS Chain Ready
@@ -104,7 +104,7 @@ const zmqClient = new VerusZmqClient(
     new VerusZmqOptions(
         new VerusZmqConnection(
             '127.0.0.1',
-            89000,
+            8900,
             [
                 SubscriptionTopics.rawTx,
                 SubscriptionTopics.hashTx,
