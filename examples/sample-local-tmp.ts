@@ -32,7 +32,7 @@ async function run() {
             console.log(`after value >> ${value} ${topic}`);
         }
     };
-    
+
     const client = new VerusZmqClient(
         new VerusZmqOptions(
             new VerusZmqConnection(
@@ -48,7 +48,6 @@ async function run() {
             eh
         )
     );
-    
 
     client
         .connect()

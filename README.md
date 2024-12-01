@@ -105,14 +105,15 @@ const zmqClient = new VerusZmqClient(
         new VerusZmqConnection(
             '127.0.0.1',
             8900,
-            [
-                SubscriptionTopics.rawTx,
-                SubscriptionTopics.hashTx,
-                SubscriptionTopics.rawBlock,
-                SubscriptionTopics.hashBlock,
-            ],
-            eh
-        )
+        ),
+        [
+            SubscriptionTopics.rawTx,
+            SubscriptionTopics.hashTx,
+            SubscriptionTopics.rawBlock,
+            SubscriptionTopics.hashBlock,
+        ],
+        eh
+    )
 );
 
 try {
@@ -174,7 +175,7 @@ For any issues or inquiries, you can raise a PR or contact me at
 |:-----:|:--------|
 | [![Discord](https://skillicons.dev/icons?i=discord)](discordapp.com/585287860513669135) | `Pangz#4102` |
 | [![Gmail](https://skillicons.dev/icons?i=gmail)](pangz.lab@gmail.com) |`pangz.lab@gmail.com` |
-| [![Twitter](https://skillicons.dev/icons?i=twitter)](https://x.com/Pangz55192569?t=CEpyeN6IetPWqWkqyvweyQ&s=09) |`@Pangz55192569` |
+| [![X](https://skillicons.dev/icons?i=twitter)](https://x.com/PangzLab) |`@PangzLab` |
 
 
 
@@ -185,3 +186,37 @@ For any issues or inquiries, you can raise a PR or contact me at
 
 # License
 This library is released under the [MIT License](https://github.com/pangz-lab/verus-zmq-client/blob/main/LICENSE).
+
+# Support Us
+Creating and maintaining a high-quality library is a labor of love that takes countless hours of coding, debugging, and community interaction. If this library has made your development easier, saved you time, or added value to your projects, consider supporting its ongoing growth and maintenance. Your contributions directly help keep this project alive, up-to-date, and evolving.
+
+Every donation, no matter the size, goes a long way in motivating the developer to dedicate time and energy to improving the library. With your support, We can continue fixing bugs, adding new features, and providing documentation and support for the community. By donating, you’re not just saying “thank you” for the work done so far—you’re investing in the library's future and helping it remain a reliable tool for developers worldwide.
+
+Let’s make this library even better, together! Consider donating to show your appreciation and ensure the continued development of this project. Your generosity fuels innovation and sustains the open-source ecosystem we all benefit from. Thank you for your support! 🍻
+
+### Donation Address
+***Verus ID*** : 
+pangz@
+<br>
+***VRSC*** : 
+RNrhRTq8ioDTrANrm52c9MfFyPKr3cmhBj
+
+***vARRR*** : 
+RWCNjDd2HNRbJMdsYxN8ZDqyrS9fYNANaR
+
+***vDEX*** : 
+RWCNjDd2HNRbJMdsYxN8ZDqyrS9fYNANaR
+
+***KMD*** : 
+RWCNjDd2HNRbJMdsYxN8ZDqyrS9fYNANaR
+
+***BTC*** : 
+3MsmELpB8bsYvFJCYKrUpMuoBATVR5eeta
+
+***ETH*** : 
+0xa248d188725c3b78af7e7e8cf4cfb8469e46cf3b
+
+
+
+
+
