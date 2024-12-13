@@ -194,6 +194,13 @@ Every donation, no matter the size, goes a long way in motivating the developer 
 
 Let’s make this library even better, together! Consider donating to show your appreciation and ensure the continued development of this project. Your generosity fuels innovation and sustains the open-source ecosystem we all benefit from. Thank you for your support! 🍻
 
+
+### Buy me Beer
+<a href="https://buymeacoffee.com/pangzlab">
+<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWtycDlxNjJ1MHUwbzY2MHI2ZmFxd3hwZDhqNHAyaDdlNXZubGtlMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/hXMGQqJFlIQMOjpsKC/giphy.webp"
+width="100" height="auto">
+</a>
+
 ### Donation Address
 ***Verus ID*** : 
 pangz@
